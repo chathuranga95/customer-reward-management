@@ -39,6 +39,7 @@ var clientId = os.Getenv("CLIENT_ID")
 var clientSecret = os.Getenv("CLIENT_SECRET")
 var tokenUrl = os.Getenv("TOKEN_URL")
 var loyaltyApiUrl = os.Getenv("LOYALTY_API_URL")
+
 // var vendorManagementApiUrl = os.Getenv("VENDOR_MANAGEMENT_API_URL")
 
 var clientCredsConfig = clientcredentials.Config{
@@ -67,6 +68,7 @@ func HandleRewardSelection(w http.ResponseWriter, r *http.Request) {
 	user, err := FetchUserByIdFromLoyaltyApi(selection.UserId)
 	if err != nil {
 		logger.Error("Failed to fetch user", zap.Error(err))
+		logger.Error("Error details", err)
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("failed to fetch user"))
 		return
@@ -143,6 +145,7 @@ func FetchUserByIdFromLoyaltyApi(userId string) (*User, error) {
 	resp, err := clientCredsConfig.Client(context.Background()).Get(url)
 	if err != nil {
 		logger.Error("Failed to fetch user", zap.String("userId", userId), zap.Error(err))
+		logger.Error("Error details", err)
 		return nil, fmt.Errorf("failed to fetch user: %v", err)
 	}
 	defer resp.Body.Close()
