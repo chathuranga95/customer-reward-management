@@ -2,9 +2,9 @@ apiVersion: core.choreo.dev/v1alpha1
 kind: ComponentConfig
 metadata:
   # +required Name of the component that this configuration belongs to.
-  name: FE management service5
+  name: reward vendor
   # +required Project name of the component that this component belongs to. Cannot be changed after creation.
-  projectName: E2E Testing
+  projectName: chathuranga-int-marketplace
   annotations:
     componentType: Service
 spec:
@@ -35,8 +35,8 @@ spec:
     # +optional Defines the service references from the internal API marketplace.
     serviceReferences:
       # +required Name of the service reference.
-    - name: choreo:///apifirst/ygtd/xzicmg/5c69c/v1.0/PUBLIC
-      connectionConfig: 01ee7a4d-b272-1c30-b0d4-89b38a9b3bd7
+    - name: choreo:///apifirst/uvjp/uynpsi/5c69c/v1.0/PUBLIC
+      connectionConfig: 01ee7c89-0027-13f8-ad5a-5c781d41cab2
       env:
       - from: ServiceURL
         to: LOYALTY_API_URL
