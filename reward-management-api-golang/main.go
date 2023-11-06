@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 
@@ -68,7 +69,7 @@ func HandleRewardSelection(w http.ResponseWriter, r *http.Request) {
 	user, err := FetchUserByIdFromLoyaltyApi(selection.UserId)
 	if err != nil {
 		logger.Error("Failed to fetch user", zap.Error(err))
-		logger.Error("Error details", err)
+		log.Println("Failed to fetch user", user, err)
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("failed to fetch user"))
 		return
@@ -145,7 +146,7 @@ func FetchUserByIdFromLoyaltyApi(userId string) (*User, error) {
 	resp, err := clientCredsConfig.Client(context.Background()).Get(url)
 	if err != nil {
 		logger.Error("Failed to fetch user", zap.String("userId", userId), zap.Error(err))
-		logger.Error("Error details", err)
+		log.Println("Failed to fetch user", userId, err)
 		return nil, fmt.Errorf("failed to fetch user: %v", err)
 	}
 	defer resp.Body.Close()
