@@ -31,18 +31,16 @@ spec:
       # This is only applicable to REST endpoint types.
       # The path should be relative to the docker context.
       schemaFilePath: openapi.yaml
-  # outbound:
-  #   # +optional Defines the service references from the internal API marketplace.
-  #   serviceReferences:
-  #     # +required Name of the service reference.
-  #   - name: choreo:///apifirst/dnex/ddrzks/5c69c/v1.0/PUBLIC
-  #     connectionConfig: 01ee7d67-a0ec-12ce-9117-239a0dffc025
-  #     env:
-  #     - from: ServiceURL
-  #       to: LOYALTY_API_URL
-  #     - from: ConsumerKey
-  #       to: CLIENT_ID
-  #     - from: ConsumerSecret
-  #       to: CLIENT_SECRET
-  #     - from: TokenURL
-  #       to: TOKEN_URL
+  outbound:
+    serviceReferences:
+    - name: choreo:///chathurangasiriwardhana/e7d0/opuphh/5c69c/v1.0/PUBLIC
+      connectionConfig: 01ee9a55-acf9-1970-915e-65ed5c095e34
+      env:
+      - from: ServiceURL
+        to: LOYALTY_API_URL
+      - from: ConsumerKey
+        to: CLIENT_ID
+      - from: ConsumerSecret
+        to: CLIENT_SECRET
+      - from: TokenURL
+        to: TOKEN_URL
