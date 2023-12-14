@@ -33,8 +33,8 @@ spec:
       schemaFilePath: openapi.yaml
   outbound:
     serviceReferences:
-    - name: choreo:///chathurangasiriwardhana/e7d0/opuphh/5c69c/v1.0/PUBLIC
-      connectionConfig: 01ee9a55-acf9-1970-915e-65ed5c095e34
+    - name: choreo:///chathurangasiriwardhana/e7d0/gpzmek/proxy/v1.7/PUBLIC
+      connectionConfig: 01ee9a56-dcf5-16a0-8b48-24f87a07977d
       env:
       - from: ServiceURL
         to: LOYALTY_API_URL
